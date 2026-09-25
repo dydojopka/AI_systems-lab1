@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/"
+     xml:base="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#attacks -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#attacks">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#belongsTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#contains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#controls -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#controls">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#defends -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#defends">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#hasAbility -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#hasAbility">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#hasResource -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#hasResource">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#hasRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#participatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#participatesIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#takesPlaceOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#takesPlaceOn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#usesItem -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#usesItem">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#ActiveAbility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#ActiveAbility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AgilityHero -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AgilityHero">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Hero"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ancient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ancient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#FactionBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AutocastAbility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AutocastAbility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Barrack -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Barrack">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#FactionBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Base -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Base">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#BasicItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#BasicItem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Item"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Building -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Building">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#ComponentItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#ComponentItem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Item"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#ConsumableItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#ConsumableItem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Item"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dire -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Team"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Experience -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Experience">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#FactionBuilding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#FactionBuilding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Fountain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Fountain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#FactionBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Game -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Game">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Gold -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Gold">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Hero -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Hero">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#InnateAbility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#InnateAbility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#IntelligenceHero -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#IntelligenceHero">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Hero"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Item -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Item">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Jungle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Jungle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Lane -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Lane">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Map -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Map">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Match -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Match">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NeutralBuilding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NeutralBuilding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NormalMatch -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NormalMatch">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Match"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#PassiveAbility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#PassiveAbility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Player -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Player">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Radiant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Radiant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Team"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#RankedMatch -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#RankedMatch">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Match"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Resource">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#River -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#River">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Map"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Role">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#StrengthHero -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#StrengthHero">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Hero"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Team -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Team">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Dota2Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Tower -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Tower">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#FactionBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#UltimateAbility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#UltimateAbility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Ability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#UniversalHero -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#UniversalHero">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Hero"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Abaddon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Abaddon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#UniversalHero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Alchemist -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Alchemist">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#StrengthHero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AncientApparition -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AncientApparition">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#IntelligenceHero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Anti-Mage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Anti-Mage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#AgilityHero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Bottom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Bottom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Lane"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Experience -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Experience"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Gold -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Gold"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#LotusPool -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#LotusPool">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NeutralBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Mid -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Mid">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Lane"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Outpost -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Outpost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NeutralBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#RoshanPit -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#RoshanPit">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#River"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Rune -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Rune">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#River"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Top -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Top">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Lane"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#TwinGate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#TwinGate">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NeutralBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Watcher -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#Watcher">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#NeutralBuilding"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
