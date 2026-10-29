@@ -1,0 +1,5 @@
+digraph g {
+	"Pudge" -> "DireTopTier1" [label="attacks"]
+	"Player001" -> "Pudge" [label="controls"]
+	"Pudge" -> "TeamRadiant" [label="memberOfTeam"]
+}

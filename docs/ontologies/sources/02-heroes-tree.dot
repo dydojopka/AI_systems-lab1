@@ -1,0 +1,42 @@
+// Filtered from the native OntoGraf export; subclass edges verified against all RDF files.
+digraph Heroes {
+graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.24", ranksep="0.52", ordering=out, fontname="Arial", fontsize=26, fontcolor="#172b43", labelloc=t, labeljust=l, splines=spline];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=22, fontcolor="#172b43", penwidth=1.6, margin="0.18,0.11"];
+edge [fontname="Arial", fontsize=16, fontcolor="#46586c", color="#7e8d9d", penwidth=1.4, arrowsize=0.8];
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="LEFT"><B>Heroes</B> · Герои, способности и роли</TD></TR><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="16" COLOR="#64748b">14 классов модуля · 4 общих класса из Core (серые узлы)</FONT></TD></TR><TR><TD HEIGHT="18"></TD></TR></TABLE>>;
+"Ability" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"ActiveAbility" [fillcolor="#e5f2ff", color="#3672a6"];
+"AgilityHero" [fillcolor="#e5f2ff", color="#3672a6"];
+"AutocastAbility" [fillcolor="#e5f2ff", color="#3672a6"];
+"Carry" [fillcolor="#e5f2ff", color="#3672a6"];
+"Dota2Entity" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"HardSupport" [fillcolor="#e5f2ff", color="#3672a6"];
+"Hero" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"InnateAbility" [fillcolor="#e5f2ff", color="#3672a6"];
+"IntelligenceHero" [fillcolor="#e5f2ff", color="#3672a6"];
+"Midlaner" [fillcolor="#e5f2ff", color="#3672a6"];
+"Offlaner" [fillcolor="#e5f2ff", color="#3672a6"];
+"PassiveAbility" [fillcolor="#e5f2ff", color="#3672a6"];
+"Role" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"SoftSupport" [fillcolor="#e5f2ff", color="#3672a6"];
+"StrengthHero" [fillcolor="#e5f2ff", color="#3672a6"];
+"UltimateAbility" [fillcolor="#e5f2ff", color="#3672a6"];
+"UniversalHero" [fillcolor="#e5f2ff", color="#3672a6"];
+"Ability" -> "ActiveAbility" [label="has subclass"];
+"Ability" -> "AutocastAbility" [label="has subclass"];
+"Ability" -> "InnateAbility" [label="has subclass"];
+"Ability" -> "PassiveAbility" [label="has subclass"];
+"Ability" -> "UltimateAbility" [label="has subclass"];
+"Dota2Entity" -> "Ability" [label="has subclass"];
+"Dota2Entity" -> "Hero" [label="has subclass"];
+"Dota2Entity" -> "Role" [label="has subclass"];
+"Hero" -> "AgilityHero" [label="has subclass"];
+"Hero" -> "IntelligenceHero" [label="has subclass"];
+"Hero" -> "StrengthHero" [label="has subclass"];
+"Hero" -> "UniversalHero" [label="has subclass"];
+"Role" -> "Carry" [label="has subclass"];
+"Role" -> "HardSupport" [label="has subclass"];
+"Role" -> "Midlaner" [label="has subclass"];
+"Role" -> "Offlaner" [label="has subclass"];
+"Role" -> "SoftSupport" [label="has subclass"];
+}

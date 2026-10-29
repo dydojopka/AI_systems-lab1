@@ -1,0 +1,32 @@
+// Filtered from the native OntoGraf export; subclass edges verified against all RDF files.
+digraph Gameplay {
+graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.24", ranksep="0.52", ordering=out, fontname="Arial", fontsize=26, fontcolor="#172b43", labelloc=t, labeljust=l, splines=spline];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=22, fontcolor="#172b43", penwidth=1.6, margin="0.18,0.11"];
+edge [fontname="Arial", fontsize=16, fontcolor="#46586c", color="#7e8d9d", penwidth=1.4, arrowsize=0.8];
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="LEFT"><B>Gameplay</B> · Сооружения</TD></TR><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="16" COLOR="#64748b">12 классов модуля · 1 общий класс из Core (серый узел)</FONT></TD></TR><TR><TD HEIGHT="18"></TD></TR></TABLE>>;
+"Ancient" [fillcolor="#eeeafa", color="#7963aa"];
+"Barracks" [fillcolor="#eeeafa", color="#7963aa"];
+"Building" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"FactionBuilding" [fillcolor="#eeeafa", color="#7963aa"];
+"Fountain" [fillcolor="#eeeafa", color="#7963aa"];
+"MeleeBarracks" [fillcolor="#eeeafa", color="#7963aa"];
+"NeutralBuilding" [fillcolor="#eeeafa", color="#7963aa"];
+"RangedBarracks" [fillcolor="#eeeafa", color="#7963aa"];
+"Tier1Tower" [fillcolor="#eeeafa", color="#7963aa"];
+"Tier2Tower" [fillcolor="#eeeafa", color="#7963aa"];
+"Tier3Tower" [fillcolor="#eeeafa", color="#7963aa"];
+"Tier4Tower" [fillcolor="#eeeafa", color="#7963aa"];
+"Tower" [fillcolor="#eeeafa", color="#7963aa"];
+"Barracks" -> "MeleeBarracks" [label="has subclass"];
+"Barracks" -> "RangedBarracks" [label="has subclass"];
+"Building" -> "FactionBuilding" [label="has subclass"];
+"Building" -> "NeutralBuilding" [label="has subclass"];
+"FactionBuilding" -> "Ancient" [label="has subclass"];
+"FactionBuilding" -> "Barracks" [label="has subclass"];
+"FactionBuilding" -> "Fountain" [label="has subclass"];
+"FactionBuilding" -> "Tower" [label="has subclass"];
+"Tower" -> "Tier1Tower" [label="has subclass"];
+"Tower" -> "Tier2Tower" [label="has subclass"];
+"Tower" -> "Tier3Tower" [label="has subclass"];
+"Tower" -> "Tier4Tower" [label="has subclass"];
+}

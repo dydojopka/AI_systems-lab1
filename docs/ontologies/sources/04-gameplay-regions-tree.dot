@@ -1,0 +1,24 @@
+// Filtered from the native OntoGraf export; subclass edges verified against all RDF files.
+digraph Gameplay {
+graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.24", ranksep="0.52", ordering=out, fontname="Arial", fontsize=26, fontcolor="#172b43", labelloc=t, labeljust=l, splines=spline];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=22, fontcolor="#172b43", penwidth=1.6, margin="0.18,0.11"];
+edge [fontname="Arial", fontsize=16, fontcolor="#46586c", color="#7e8d9d", penwidth=1.4, arrowsize=0.8];
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="LEFT"><B>Gameplay</B> · Области карты</TD></TR><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="16" COLOR="#64748b">8 классов модуля · 1 общий класс из Core (серый узел)</FONT></TD></TR><TR><TD HEIGHT="18"></TD></TR></TABLE>>;
+"Base" [fillcolor="#eeeafa", color="#7963aa"];
+"BottomLane" [fillcolor="#eeeafa", color="#7963aa"];
+"Jungle" [fillcolor="#eeeafa", color="#7963aa"];
+"Lane" [fillcolor="#eeeafa", color="#7963aa"];
+"MapRegion" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"MidLane" [fillcolor="#eeeafa", color="#7963aa"];
+"River" [fillcolor="#eeeafa", color="#7963aa"];
+"SpecialArea" [fillcolor="#eeeafa", color="#7963aa"];
+"TopLane" [fillcolor="#eeeafa", color="#7963aa"];
+"Lane" -> "BottomLane" [label="has subclass"];
+"Lane" -> "MidLane" [label="has subclass"];
+"Lane" -> "TopLane" [label="has subclass"];
+"MapRegion" -> "Base" [label="has subclass"];
+"MapRegion" -> "Jungle" [label="has subclass"];
+"MapRegion" -> "Lane" [label="has subclass"];
+"MapRegion" -> "River" [label="has subclass"];
+"MapRegion" -> "SpecialArea" [label="has subclass"];
+}

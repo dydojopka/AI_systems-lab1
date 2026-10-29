@@ -1,0 +1,38 @@
+// Filtered from the native OntoGraf export; subclass edges verified against all RDF files.
+digraph Core {
+graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.24", ranksep="0.52", ordering=out, fontname="Arial", fontsize=26, fontcolor="#172b43", labelloc=t, labeljust=l, splines=spline];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=22, fontcolor="#172b43", penwidth=1.6, margin="0.18,0.11"];
+edge [fontname="Arial", fontsize=16, fontcolor="#46586c", color="#7e8d9d", penwidth=1.4, arrowsize=0.8];
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="LEFT"><B>Core</B> · Базовая онтология</TD></TR><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="16" COLOR="#64748b">16 классов модуля</FONT></TD></TR><TR><TD HEIGHT="18"></TD></TR></TABLE>>;
+"Ability" [fillcolor="#fff1cf", color="#b47b16"];
+"Building" [fillcolor="#fff1cf", color="#b47b16"];
+"Dota2Entity" [fillcolor="#fff1cf", color="#b47b16"];
+"Faction" [fillcolor="#fff1cf", color="#b47b16"];
+"Game" [fillcolor="#fff1cf", color="#b47b16"];
+"Hero" [fillcolor="#fff1cf", color="#b47b16"];
+"Item" [fillcolor="#fff1cf", color="#b47b16"];
+"Map" [fillcolor="#fff1cf", color="#b47b16"];
+"MapRegion" [fillcolor="#fff1cf", color="#b47b16"];
+"Match" [fillcolor="#fff1cf", color="#b47b16"];
+"NormalMatch" [fillcolor="#fff1cf", color="#b47b16"];
+"Player" [fillcolor="#fff1cf", color="#b47b16"];
+"RankedMatch" [fillcolor="#fff1cf", color="#b47b16"];
+"Resource" [fillcolor="#fff1cf", color="#b47b16"];
+"Role" [fillcolor="#fff1cf", color="#b47b16"];
+"Team" [fillcolor="#fff1cf", color="#b47b16"];
+"Dota2Entity" -> "Ability" [label="has subclass"];
+"Dota2Entity" -> "Building" [label="has subclass"];
+"Dota2Entity" -> "Faction" [label="has subclass"];
+"Dota2Entity" -> "Game" [label="has subclass"];
+"Dota2Entity" -> "Hero" [label="has subclass"];
+"Dota2Entity" -> "Item" [label="has subclass"];
+"Dota2Entity" -> "Map" [label="has subclass"];
+"Dota2Entity" -> "MapRegion" [label="has subclass"];
+"Dota2Entity" -> "Player" [label="has subclass"];
+"Dota2Entity" -> "Resource" [label="has subclass"];
+"Dota2Entity" -> "Role" [label="has subclass"];
+"Dota2Entity" -> "Team" [label="has subclass"];
+"Game" -> "Match" [label="has subclass"];
+"Match" -> "NormalMatch" [label="has subclass"];
+"Match" -> "RankedMatch" [label="has subclass"];
+}

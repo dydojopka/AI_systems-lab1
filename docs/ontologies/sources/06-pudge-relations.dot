@@ -1,0 +1,22 @@
+// Explicit assertions from the union of Core, Heroes, Items and Gameplay RDF files.
+digraph Scenario {
+graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.24", ranksep="0.52", ordering=out, fontname="Arial", fontsize=26, fontcolor="#172b43", labelloc=t, labeljust=l, splines=spline];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=22, fontcolor="#172b43", penwidth=1.6, margin="0.18,0.11"];
+edge [fontname="Arial", fontsize=16, fontcolor="#46586c", color="#7e8d9d", penwidth=1.4, arrowsize=0.8];
+label=<<B>Player001 и Pudge</B> · связи экземпляров<BR ALIGN="LEFT"/><FONT POINT-SIZE="16" COLOR="#64748b">Имена объектных свойств указаны на стрелках; типы — под именами экземпляров</FONT><BR ALIGN="LEFT"/><BR/>>;
+"Player001" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>Player001</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">Player</FONT>>];
+"Pudge" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>Pudge</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">StrengthHero</FONT>>];
+"MeatHook" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>MeatHook</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">ActiveAbility</FONT>>];
+"Dismember" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>Dismember</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">ActiveAbility, UltimateAbility</FONT>>];
+"BlinkDagger" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>BlinkDagger</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">BasicItem, ComponentItem</FONT>>];
+"OfflaneRole" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>OfflaneRole</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">Offlaner</FONT>>];
+"TeamRadiant" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>TeamRadiant</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">Team</FONT>>];
+"DireTopTier1" [fillcolor="#f1e9f7", color="#8b65a0", label=<<B>DireTopTier1</B><BR/><FONT POINT-SIZE="15" COLOR="#6f5b80">Tier1Tower</FONT>>];
+"Player001" -> "Pudge" [label="controls", color="#9b75b0"];
+"Pudge" -> "MeatHook" [label="hasAbility", color="#9b75b0"];
+"Pudge" -> "Dismember" [label="hasAbility", color="#9b75b0"];
+"Pudge" -> "BlinkDagger" [label="usesItem", color="#9b75b0"];
+"Pudge" -> "OfflaneRole" [label="hasRole", color="#9b75b0"];
+"Pudge" -> "TeamRadiant" [label="memberOfTeam", color="#9b75b0"];
+"Pudge" -> "DireTopTier1" [label="attacks", color="#9b75b0"];
+}

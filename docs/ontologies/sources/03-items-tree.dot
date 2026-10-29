@@ -1,0 +1,28 @@
+// Filtered from the native OntoGraf export; subclass edges verified against all RDF files.
+digraph Items {
+graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.24", ranksep="0.52", ordering=out, fontname="Arial", fontsize=26, fontcolor="#172b43", labelloc=t, labeljust=l, splines=spline];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=22, fontcolor="#172b43", penwidth=1.6, margin="0.18,0.11"];
+edge [fontname="Arial", fontsize=16, fontcolor="#46586c", color="#7e8d9d", penwidth=1.4, arrowsize=0.8];
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="LEFT"><B>Items</B> · Предметы и ресурсы</TD></TR><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="16" COLOR="#64748b">8 классов модуля · 3 общих класса из Core (серые узлы)</FONT></TD></TR><TR><TD HEIGHT="18"></TD></TR></TABLE>>;
+"BasicItem" [fillcolor="#e7f4e6", color="#56834d"];
+"ComponentItem" [fillcolor="#e7f4e6", color="#56834d"];
+"ConsumableItem" [fillcolor="#e7f4e6", color="#56834d"];
+"CraftedItem" [fillcolor="#e7f4e6", color="#56834d"];
+"Dota2Entity" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"Experience" [fillcolor="#e7f4e6", color="#56834d"];
+"Gold" [fillcolor="#e7f4e6", color="#56834d"];
+"Health" [fillcolor="#e7f4e6", color="#56834d"];
+"Item" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"Mana" [fillcolor="#e7f4e6", color="#56834d"];
+"Resource" [fillcolor="#f2f4f7", color="#9da7b3", style="rounded,filled,dashed"];
+"BasicItem" -> "ConsumableItem" [label="has subclass"];
+"Dota2Entity" -> "Item" [label="has subclass"];
+"Dota2Entity" -> "Resource" [label="has subclass"];
+"Item" -> "BasicItem" [label="has subclass"];
+"Item" -> "ComponentItem" [label="has subclass"];
+"Item" -> "CraftedItem" [label="has subclass"];
+"Resource" -> "Experience" [label="has subclass"];
+"Resource" -> "Gold" [label="has subclass"];
+"Resource" -> "Health" [label="has subclass"];
+"Resource" -> "Mana" [label="has subclass"];
+}
