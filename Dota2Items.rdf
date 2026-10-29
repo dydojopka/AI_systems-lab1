@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#"
+     xml:base="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2"
+     xmlns:dota2="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/items">
+        <owl:imports rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/core"/>
+        <rdfs:label xml:lang="ru">Онтология предметов и ресурсов Dota 2</rdfs:label>
+        <rdfs:comment xml:lang="ru">Классификация предметов, игровых ресурсов и их числовых характеристик.</rdfs:comment>
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+
+    <!-- Item hierarchy -->
+
+    <owl:Class rdf:about="#BasicItem">
+        <rdfs:subClassOf rdf:resource="#Item"/>
+        <rdfs:label xml:lang="ru">Базовый предмет</rdfs:label>
+        <rdfs:comment xml:lang="ru">Предмет, покупаемый без сборки из других предметов.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="#CraftedItem">
+        <rdfs:subClassOf rdf:resource="#Item"/>
+        <rdfs:label xml:lang="ru">Сборный предмет</rdfs:label>
+        <rdfs:comment xml:lang="ru">Предмет, собираемый из других предметов, с рецептом или без него.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="#ComponentItem">
+        <rdfs:subClassOf rdf:resource="#Item"/>
+        <rdfs:label xml:lang="ru">Предмет-компонент</rdfs:label>
+        <rdfs:comment xml:lang="ru">Предмет, используемый при сборке другого предмета. Это дополнительный признак: компонент может быть как базовым, так и сборным предметом.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="#ConsumableItem">
+        <rdfs:subClassOf rdf:resource="#BasicItem"/>
+        <rdfs:label xml:lang="ru">Расходуемый предмет</rdfs:label>
+        <rdfs:comment xml:lang="ru">Базовый расходник магазина, который расходуется при использовании, например Tango или Healing Salve.</rdfs:comment>
+    </owl:Class>
+
+    <!-- Resource hierarchy -->
+
+    <owl:Class rdf:about="#Gold"><rdfs:subClassOf rdf:resource="#Resource"/><rdfs:label xml:lang="ru">Золото</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Experience"><rdfs:subClassOf rdf:resource="#Resource"/><rdfs:label xml:lang="ru">Опыт</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Health"><rdfs:subClassOf rdf:resource="#Resource"/><rdfs:label xml:lang="ru">Здоровье</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Mana"><rdfs:subClassOf rdf:resource="#Resource"/><rdfs:label xml:lang="ru">Мана</rdfs:label></owl:Class>
+
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Gold"/>
+            <rdf:Description rdf:about="#Experience"/>
+            <rdf:Description rdf:about="#Health"/>
+            <rdf:Description rdf:about="#Mana"/>
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Datatype properties -->
+
+    <owl:DatatypeProperty rdf:about="#hasCost">
+        <rdfs:domain rdf:resource="#Item"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">стоимость</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasHealth">
+        <rdfs:domain rdf:resource="#Dota2Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">запас здоровья</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasMana">
+        <rdfs:domain rdf:resource="#Hero"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">запас маны</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasLevel">
+        <rdfs:domain rdf:resource="#Hero"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">уровень героя</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasDamage">
+        <rdfs:domain rdf:resource="#Dota2Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">урон</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasGold">
+        <rdfs:domain rdf:resource="#Hero"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">количество золота</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasExperience">
+        <rdfs:domain rdf:resource="#Hero"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">количество опыта</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasAmount">
+        <rdfs:domain rdf:resource="#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">количество ресурса</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- Classification by assembly and consumption; ComponentItem is an overlapping role. -->
+
+    <owl:NamedIndividual rdf:about="#Tango">
+        <rdf:type rdf:resource="#ConsumableItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tango</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#HealingSalve">
+        <rdf:type rdf:resource="#ConsumableItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Healing Salve</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BootsOfSpeed">
+        <rdf:type rdf:resource="#BasicItem"/><rdf:type rdf:resource="#ComponentItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boots of Speed</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#OgreAxe">
+        <rdf:type rdf:resource="#BasicItem"/><rdf:type rdf:resource="#ComponentItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ogre Axe</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BlinkDagger">
+        <rdf:type rdf:resource="#BasicItem"/><rdf:type rdf:resource="#ComponentItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blink Dagger</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2250</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BlackKingBar">
+        <rdf:type rdf:resource="#CraftedItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black King Bar</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4050</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BattleFury">
+        <rdf:type rdf:resource="#CraftedItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Battle Fury</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4100</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#AghanimsScepter">
+        <rdf:type rdf:resource="#CraftedItem"/><rdf:type rdf:resource="#ComponentItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aghanim's Scepter</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4200</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#MagicWand">
+        <rdf:type rdf:resource="#CraftedItem"/><rdf:type rdf:resource="#ComponentItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Magic Wand</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">450</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#ForceStaff">
+        <rdf:type rdf:resource="#CraftedItem"/><rdf:type rdf:resource="#ComponentItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Force Staff</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</dota2:hasCost>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Daedalus">
+        <rdf:type rdf:resource="#CraftedItem"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Daedalus</dota2:hasName><dota2:hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5100</dota2:hasCost>
+    </owl:NamedIndividual>
+
+    <!-- Resource instances have distinct IRIs and therefore do not collide with the resource classes. -->
+
+    <owl:NamedIndividual rdf:about="#Match001GoldResource">
+        <rdf:type rdf:resource="#Gold"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Золото матча 001</dota2:hasName><dota2:hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2500</dota2:hasAmount>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Match001ExperienceResource">
+        <rdf:type rdf:resource="#Experience"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Опыт матча 001</dota2:hasName><dota2:hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5000</dota2:hasAmount>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Match001HealthResource">
+        <rdf:type rdf:resource="#Health"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Здоровье</dota2:hasName><dota2:hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</dota2:hasAmount>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Match001ManaResource">
+        <rdf:type rdf:resource="#Mana"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Мана</dota2:hasName><dota2:hasAmount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">700</dota2:hasAmount>
+    </owl:NamedIndividual>
+</rdf:RDF>

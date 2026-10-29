@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#"
+     xml:base="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2"
+     xmlns:dota2="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/gameplay">
+        <owl:imports rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/core"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/heroes"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/items"/>
+        <rdfs:label xml:lang="ru">Онтология игрового процесса Dota 2</rdfs:label>
+        <rdfs:comment xml:lang="ru">Интеграционная онтология карты, сооружений, команд и демонстрационного матча.</rdfs:comment>
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+
+    <!-- Properties describing the map and factions -->
+
+    <owl:ObjectProperty rdf:about="#hasRegion">
+        <owl:inverseOf rdf:resource="#isRegionOf"/>
+        <rdfs:domain rdf:resource="#Map"/>
+        <rdfs:range rdf:resource="#MapRegion"/>
+        <rdfs:label xml:lang="ru">содержит область</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#isRegionOf">
+        <rdfs:domain rdf:resource="#MapRegion"/>
+        <rdfs:range rdf:resource="#Map"/>
+        <rdfs:label xml:lang="ru">является областью карты</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#locatedIn">
+        <rdfs:domain rdf:resource="#Building"/>
+        <rdfs:range rdf:resource="#MapRegion"/>
+        <rdfs:label xml:lang="ru">расположено в области</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#belongsToFaction">
+        <rdfs:domain rdf:resource="#Building"/>
+        <rdfs:range rdf:resource="#Faction"/>
+        <rdfs:label xml:lang="ru">принадлежит фракции</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- Map region hierarchy. Regions are parts of a map, not kinds of complete maps. -->
+
+    <owl:Class rdf:about="#Lane"><rdfs:subClassOf rdf:resource="#MapRegion"/><rdfs:label xml:lang="ru">Линия</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Jungle"><rdfs:subClassOf rdf:resource="#MapRegion"/><rdfs:label xml:lang="ru">Лес</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#River"><rdfs:subClassOf rdf:resource="#MapRegion"/><rdfs:label xml:lang="ru">Река</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Base"><rdfs:subClassOf rdf:resource="#MapRegion"/><rdfs:label xml:lang="ru">База</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#SpecialArea"><rdfs:subClassOf rdf:resource="#MapRegion"/><rdfs:label xml:lang="ru">Особая область</rdfs:label></owl:Class>
+
+    <owl:Class rdf:about="#TopLane"><rdfs:subClassOf rdf:resource="#Lane"/><rdfs:label xml:lang="ru">Верхняя линия</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#MidLane"><rdfs:subClassOf rdf:resource="#Lane"/><rdfs:label xml:lang="ru">Центральная линия</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#BottomLane"><rdfs:subClassOf rdf:resource="#Lane"/><rdfs:label xml:lang="ru">Нижняя линия</rdfs:label></owl:Class>
+
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#TopLane"/>
+            <rdf:Description rdf:about="#MidLane"/>
+            <rdf:Description rdf:about="#BottomLane"/>
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Building hierarchy -->
+
+    <owl:Class rdf:about="#FactionBuilding"><rdfs:subClassOf rdf:resource="#Building"/><rdfs:label xml:lang="ru">Сооружение фракции</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#NeutralBuilding"><rdfs:subClassOf rdf:resource="#Building"/><rdfs:label xml:lang="ru">Нейтральное сооружение</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Tower"><rdfs:subClassOf rdf:resource="#FactionBuilding"/><rdfs:label xml:lang="ru">Башня</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Barracks"><rdfs:subClassOf rdf:resource="#FactionBuilding"/><rdfs:label xml:lang="ru">Казармы</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Ancient"><rdfs:subClassOf rdf:resource="#FactionBuilding"/><rdfs:label xml:lang="ru">Древний</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Fountain"><rdfs:subClassOf rdf:resource="#FactionBuilding"/><rdfs:label xml:lang="ru">Фонтан</rdfs:label></owl:Class>
+
+    <owl:Class rdf:about="#Tier1Tower"><rdfs:subClassOf rdf:resource="#Tower"/><rdfs:label xml:lang="ru">Башня первого уровня</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Tier2Tower"><rdfs:subClassOf rdf:resource="#Tower"/><rdfs:label xml:lang="ru">Башня второго уровня</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Tier3Tower"><rdfs:subClassOf rdf:resource="#Tower"/><rdfs:label xml:lang="ru">Башня третьего уровня</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Tier4Tower"><rdfs:subClassOf rdf:resource="#Tower"/><rdfs:label xml:lang="ru">Башня четвёртого уровня</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#MeleeBarracks"><rdfs:subClassOf rdf:resource="#Barracks"/><rdfs:label xml:lang="ru">Казармы ближнего боя</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#RangedBarracks"><rdfs:subClassOf rdf:resource="#Barracks"/><rdfs:label xml:lang="ru">Казармы дальнего боя</rdfs:label></owl:Class>
+
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Tier1Tower"/>
+            <rdf:Description rdf:about="#Tier2Tower"/>
+            <rdf:Description rdf:about="#Tier3Tower"/>
+            <rdf:Description rdf:about="#Tier4Tower"/>
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Map and region individuals -->
+
+    <owl:NamedIndividual rdf:about="#Dota2Map">
+        <rdf:type rdf:resource="#Map"/>
+        <dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dota 2 Battlefield</dota2:hasName>
+        <dota2:hasRegion rdf:resource="#TopLaneArea"/><dota2:hasRegion rdf:resource="#MidLaneArea"/><dota2:hasRegion rdf:resource="#BottomLaneArea"/>
+        <dota2:hasRegion rdf:resource="#RadiantJungle"/><dota2:hasRegion rdf:resource="#DireJungle"/><dota2:hasRegion rdf:resource="#MainRiver"/>
+        <dota2:hasRegion rdf:resource="#RadiantBaseArea"/><dota2:hasRegion rdf:resource="#DireBaseArea"/><dota2:hasRegion rdf:resource="#RoshanPitArea"/>
+        <dota2:contains rdf:resource="#RadiantTopTier1"/><dota2:contains rdf:resource="#RadiantMidTier2"/><dota2:contains rdf:resource="#RadiantBaseTier3"/><dota2:contains rdf:resource="#RadiantTier4"/>
+        <dota2:contains rdf:resource="#DireTopTier1"/><dota2:contains rdf:resource="#DireMidTier2"/><dota2:contains rdf:resource="#DireBaseTier3"/><dota2:contains rdf:resource="#DireTier4"/>
+        <dota2:contains rdf:resource="#RadiantMeleeBarracks"/><dota2:contains rdf:resource="#RadiantRangedBarracks"/><dota2:contains rdf:resource="#DireMeleeBarracks"/><dota2:contains rdf:resource="#DireRangedBarracks"/>
+        <dota2:contains rdf:resource="#RadiantAncient"/><dota2:contains rdf:resource="#DireAncient"/><dota2:contains rdf:resource="#RadiantFountain"/><dota2:contains rdf:resource="#DireFountain"/><dota2:contains rdf:resource="#CentralOutpost"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#TopLaneArea"><rdf:type rdf:resource="#TopLane"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Top Lane</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#MidLaneArea"><rdf:type rdf:resource="#MidLane"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mid Lane</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BottomLaneArea"><rdf:type rdf:resource="#BottomLane"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bottom Lane</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantJungle"><rdf:type rdf:resource="#Jungle"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Jungle</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireJungle"><rdf:type rdf:resource="#Jungle"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Jungle</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#MainRiver"><rdf:type rdf:resource="#River"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">River</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantBaseArea"><rdf:type rdf:resource="#Base"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Base</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireBaseArea"><rdf:type rdf:resource="#Base"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Base</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RoshanPitArea"><rdf:type rdf:resource="#SpecialArea"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Roshan Pit</dota2:hasName></owl:NamedIndividual>
+
+    <!-- Factions -->
+
+    <owl:NamedIndividual rdf:about="#Radiant"><rdf:type rdf:resource="#Faction"/><owl:differentFrom rdf:resource="#Dire"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dire"><rdf:type rdf:resource="#Faction"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire</dota2:hasName></owl:NamedIndividual>
+
+    <!-- Building individuals -->
+
+    <owl:NamedIndividual rdf:about="#RadiantTopTier1"><rdf:type rdf:resource="#Tier1Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Top Tier 1</dota2:hasName><dota2:locatedIn rdf:resource="#TopLaneArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/><dota2:hasHealth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1800</dota2:hasHealth></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantMidTier2"><rdf:type rdf:resource="#Tier2Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Mid Tier 2</dota2:hasName><dota2:locatedIn rdf:resource="#MidLaneArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantBaseTier3"><rdf:type rdf:resource="#Tier3Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Tier 3</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantBaseArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantTier4"><rdf:type rdf:resource="#Tier4Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Tier 4</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantBaseArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireTopTier1"><rdf:type rdf:resource="#Tier1Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Top Tier 1</dota2:hasName><dota2:locatedIn rdf:resource="#TopLaneArea"/><dota2:belongsToFaction rdf:resource="#Dire"/><dota2:hasHealth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1800</dota2:hasHealth></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireMidTier2"><rdf:type rdf:resource="#Tier2Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Mid Tier 2</dota2:hasName><dota2:locatedIn rdf:resource="#MidLaneArea"/><dota2:belongsToFaction rdf:resource="#Dire"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireBaseTier3"><rdf:type rdf:resource="#Tier3Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Tier 3</dota2:hasName><dota2:locatedIn rdf:resource="#DireBaseArea"/><dota2:belongsToFaction rdf:resource="#Dire"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireTier4"><rdf:type rdf:resource="#Tier4Tower"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Tier 4</dota2:hasName><dota2:locatedIn rdf:resource="#DireBaseArea"/><dota2:belongsToFaction rdf:resource="#Dire"/></owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#RadiantMeleeBarracks"><rdf:type rdf:resource="#MeleeBarracks"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Melee Barracks</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantBaseArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantRangedBarracks"><rdf:type rdf:resource="#RangedBarracks"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Ranged Barracks</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantBaseArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireMeleeBarracks"><rdf:type rdf:resource="#MeleeBarracks"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Melee Barracks</dota2:hasName><dota2:locatedIn rdf:resource="#DireBaseArea"/><dota2:belongsToFaction rdf:resource="#Dire"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireRangedBarracks"><rdf:type rdf:resource="#RangedBarracks"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Ranged Barracks</dota2:hasName><dota2:locatedIn rdf:resource="#DireBaseArea"/><dota2:belongsToFaction rdf:resource="#Dire"/></owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#RadiantAncient"><rdf:type rdf:resource="#Ancient"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Ancient</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantBaseArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/><dota2:hasHealth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4500</dota2:hasHealth></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireAncient"><rdf:type rdf:resource="#Ancient"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Ancient</dota2:hasName><dota2:locatedIn rdf:resource="#DireBaseArea"/><dota2:belongsToFaction rdf:resource="#Dire"/><dota2:hasHealth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4500</dota2:hasHealth></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#RadiantFountain"><rdf:type rdf:resource="#Fountain"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Fountain</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantBaseArea"/><dota2:belongsToFaction rdf:resource="#Radiant"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#DireFountain"><rdf:type rdf:resource="#Fountain"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Fountain</dota2:hasName><dota2:locatedIn rdf:resource="#DireBaseArea"/><dota2:belongsToFaction rdf:resource="#Dire"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#CentralOutpost"><rdf:type rdf:resource="#NeutralBuilding"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outpost</dota2:hasName><dota2:locatedIn rdf:resource="#RadiantJungle"/></owl:NamedIndividual>
+
+    <!-- Teams and match -->
+
+    <owl:NamedIndividual rdf:about="#TeamRadiant">
+        <rdf:type rdf:resource="#Team"/><owl:differentFrom rdf:resource="#TeamDire"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radiant Team</dota2:hasName>
+        <dota2:representsFaction rdf:resource="#Radiant"/><dota2:defends rdf:resource="#RadiantAncient"/><dota2:defends rdf:resource="#RadiantTopTier1"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#TeamDire">
+        <rdf:type rdf:resource="#Team"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dire Team</dota2:hasName>
+        <dota2:representsFaction rdf:resource="#Dire"/><dota2:defends rdf:resource="#DireAncient"/><dota2:defends rdf:resource="#DireTopTier1"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Match001">
+        <rdf:type rdf:resource="#RankedMatch"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ranked Match 001</dota2:hasName>
+        <dota2:takesPlaceOn rdf:resource="#Dota2Map"/><dota2:hasTeam rdf:resource="#TeamRadiant"/><dota2:hasTeam rdf:resource="#TeamDire"/>
+        <dota2:hasDurationMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</dota2:hasDurationMinutes>
+    </owl:NamedIndividual>
+
+    <!-- Ten players form two complete teams. -->
+
+    <owl:NamedIndividual rdf:about="#Player001"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HookMaster</dota2:hasNickname><dota2:controls rdf:resource="#Pudge"/><dota2:belongsTo rdf:resource="#TeamRadiant"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player002"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elementalist</dota2:hasNickname><dota2:controls rdf:resource="#Invoker"/><dota2:belongsTo rdf:resource="#TeamDire"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player003"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FrostSupport</dota2:hasNickname><dota2:controls rdf:resource="#CrystalMaiden"/><dota2:belongsTo rdf:resource="#TeamRadiant"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player004"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DarkShield</dota2:hasNickname><dota2:controls rdf:resource="#Abaddon"/><dota2:belongsTo rdf:resource="#TeamRadiant"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player005"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CallMaster</dota2:hasNickname><dota2:controls rdf:resource="#Axe"/><dota2:belongsTo rdf:resource="#TeamRadiant"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player006"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BladeRunner</dota2:hasNickname><dota2:controls rdf:resource="#Juggernaut"/><dota2:belongsTo rdf:resource="#TeamRadiant"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player007"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GreedyCarry</dota2:hasNickname><dota2:controls rdf:resource="#Alchemist"/><dota2:belongsTo rdf:resource="#TeamDire"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player008"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ManaHunter</dota2:hasNickname><dota2:controls rdf:resource="#AntiMage"/><dota2:belongsTo rdf:resource="#TeamDire"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player009"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IceSupport</dota2:hasNickname><dota2:controls rdf:resource="#AncientApparition"/><dota2:belongsTo rdf:resource="#TeamDire"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Player010"><rdf:type rdf:resource="#Player"/><dota2:hasNickname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WindShot</dota2:hasNickname><dota2:controls rdf:resource="#Windranger"/><dota2:belongsTo rdf:resource="#TeamDire"/><dota2:participatesIn rdf:resource="#Match001"/></owl:NamedIndividual>
+
+    <!-- Cross-module assertions connect heroes to teams and buildings. -->
+
+    <rdf:Description rdf:about="#Pudge"><dota2:memberOfTeam rdf:resource="#TeamRadiant"/><dota2:attacks rdf:resource="#DireTopTier1"/></rdf:Description>
+    <rdf:Description rdf:about="#Juggernaut"><dota2:memberOfTeam rdf:resource="#TeamRadiant"/><dota2:attacks rdf:resource="#DireAncient"/></rdf:Description>
+    <rdf:Description rdf:about="#CrystalMaiden"><dota2:memberOfTeam rdf:resource="#TeamRadiant"/></rdf:Description>
+    <rdf:Description rdf:about="#Abaddon"><dota2:memberOfTeam rdf:resource="#TeamRadiant"/></rdf:Description>
+    <rdf:Description rdf:about="#Axe"><dota2:memberOfTeam rdf:resource="#TeamRadiant"/></rdf:Description>
+    <rdf:Description rdf:about="#Invoker"><dota2:memberOfTeam rdf:resource="#TeamDire"/><dota2:attacks rdf:resource="#RadiantMidTier2"/></rdf:Description>
+    <rdf:Description rdf:about="#Alchemist"><dota2:memberOfTeam rdf:resource="#TeamDire"/></rdf:Description>
+    <rdf:Description rdf:about="#AntiMage"><dota2:memberOfTeam rdf:resource="#TeamDire"/></rdf:Description>
+    <rdf:Description rdf:about="#AncientApparition"><dota2:memberOfTeam rdf:resource="#TeamDire"/></rdf:Description>
+    <rdf:Description rdf:about="#Windranger"><dota2:memberOfTeam rdf:resource="#TeamDire"/></rdf:Description>
+</rdf:RDF>

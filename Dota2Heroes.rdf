@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#"
+     xml:base="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2"
+     xmlns:dota2="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/heroes">
+        <owl:imports rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/core"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/items"/>
+        <rdfs:label xml:lang="ru">Онтология героев Dota 2</rdfs:label>
+        <rdfs:comment xml:lang="ru">Типы героев, способности, роли и демонстрационные экземпляры.</rdfs:comment>
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+
+    <!-- Hero hierarchy -->
+
+    <owl:Class rdf:about="#StrengthHero"><rdfs:subClassOf rdf:resource="#Hero"/><rdfs:label xml:lang="ru">Герой силы</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#AgilityHero"><rdfs:subClassOf rdf:resource="#Hero"/><rdfs:label xml:lang="ru">Герой ловкости</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#IntelligenceHero"><rdfs:subClassOf rdf:resource="#Hero"/><rdfs:label xml:lang="ru">Герой интеллекта</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#UniversalHero"><rdfs:subClassOf rdf:resource="#Hero"/><rdfs:label xml:lang="ru">Универсальный герой</rdfs:label></owl:Class>
+
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#StrengthHero"/>
+            <rdf:Description rdf:about="#AgilityHero"/>
+            <rdf:Description rdf:about="#IntelligenceHero"/>
+            <rdf:Description rdf:about="#UniversalHero"/>
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Ability categories overlap: an ultimate or an innate ability can also be active. -->
+
+    <owl:Class rdf:about="#ActiveAbility"><rdfs:subClassOf rdf:resource="#Ability"/><rdfs:label xml:lang="ru">Активная способность</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#PassiveAbility"><rdfs:subClassOf rdf:resource="#Ability"/><rdfs:label xml:lang="ru">Пассивная способность</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#UltimateAbility"><rdfs:subClassOf rdf:resource="#Ability"/><rdfs:label xml:lang="ru">Ультимативная способность</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#InnateAbility"><rdfs:subClassOf rdf:resource="#Ability"/><rdfs:label xml:lang="ru">Врождённая способность</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#AutocastAbility"><rdfs:subClassOf rdf:resource="#Ability"/><rdfs:label xml:lang="ru">Автоматически применяемая способность</rdfs:label></owl:Class>
+
+    <!-- Role hierarchy -->
+
+    <owl:Class rdf:about="#Carry"><rdfs:subClassOf rdf:resource="#Role"/><rdfs:label xml:lang="ru">Керри</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Midlaner"><rdfs:subClassOf rdf:resource="#Role"/><rdfs:label xml:lang="ru">Мидер</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#Offlaner"><rdfs:subClassOf rdf:resource="#Role"/><rdfs:label xml:lang="ru">Оффлейнер</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#SoftSupport"><rdfs:subClassOf rdf:resource="#Role"/><rdfs:label xml:lang="ru">Частичная поддержка</rdfs:label></owl:Class>
+    <owl:Class rdf:about="#HardSupport"><rdfs:subClassOf rdf:resource="#Role"/><rdfs:label xml:lang="ru">Полная поддержка</rdfs:label></owl:Class>
+
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Carry"/>
+            <rdf:Description rdf:about="#Midlaner"/>
+            <rdf:Description rdf:about="#Offlaner"/>
+            <rdf:Description rdf:about="#SoftSupport"/>
+            <rdf:Description rdf:about="#HardSupport"/>
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Ability characteristics -->
+
+    <owl:DatatypeProperty rdf:about="#hasManaCost">
+        <rdfs:domain rdf:resource="#Ability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">стоимость маны</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasCooldownSeconds">
+        <rdfs:domain rdf:resource="#Ability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="ru">время перезарядки в секундах</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- Role individuals -->
+
+    <owl:NamedIndividual rdf:about="#CarryRole"><rdf:type rdf:resource="#Carry"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carry</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#MidRole"><rdf:type rdf:resource="#Midlaner"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Midlaner</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#OfflaneRole"><rdf:type rdf:resource="#Offlaner"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Offlaner</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#SoftSupportRole"><rdf:type rdf:resource="#SoftSupport"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soft Support</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#HardSupportRole"><rdf:type rdf:resource="#HardSupport"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hard Support</dota2:hasName></owl:NamedIndividual>
+
+    <!-- Ability individuals -->
+
+    <owl:NamedIndividual rdf:about="#MeatHook"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meat Hook</dota2:hasName><dota2:hasManaCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</dota2:hasManaCost><dota2:hasCooldownSeconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</dota2:hasCooldownSeconds></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dismember"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dismember</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BladeFury"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blade Fury</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Omnislash"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Omnislash</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Quas"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quas</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Invoke"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#InnateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Invoke</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#CrystalNova"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Crystal Nova</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#FreezingField"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Freezing Field</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#AphoticShield"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aphotic Shield</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BorrowedTime"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><rdfs:comment xml:lang="ru">Можно активировать вручную; автоматическое срабатывание при низком здоровье не делает способность пассивной.</rdfs:comment><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Borrowed Time</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#AcidSpray"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Acid Spray</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#ChemicalRage"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chemical Rage</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Blink"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blink</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#ManaVoid"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mana Void</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#IceVortex"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ice Vortex</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#IceBlast"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ice Blast</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#BerserkersCall"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Berserker's Call</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#CullingBlade"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Culling Blade</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Powershot"><rdf:type rdf:resource="#ActiveAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Powershot</dota2:hasName></owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#FocusFire"><rdf:type rdf:resource="#ActiveAbility"/><rdf:type rdf:resource="#UltimateAbility"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Focus Fire</dota2:hasName></owl:NamedIndividual>
+
+    <!-- Hero individuals. Item and resource assertions are resolved through the imported Items ontology. -->
+
+    <owl:NamedIndividual rdf:about="#Pudge">
+        <rdf:type rdf:resource="#StrengthHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pudge</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#MeatHook"/><dota2:hasAbility rdf:resource="#Dismember"/><dota2:hasRole rdf:resource="#OfflaneRole"/><dota2:usesItem rdf:resource="#BlinkDagger"/>
+        <dota2:hasResource rdf:resource="#Match001GoldResource"/><dota2:hasResource rdf:resource="#Match001ExperienceResource"/>
+        <dota2:hasLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</dota2:hasLevel><dota2:hasHealth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</dota2:hasHealth><dota2:hasMana rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">700</dota2:hasMana><dota2:hasGold rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2500</dota2:hasGold><dota2:hasExperience rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5000</dota2:hasExperience>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Juggernaut">
+        <rdf:type rdf:resource="#AgilityHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Juggernaut</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#BladeFury"/><dota2:hasAbility rdf:resource="#Omnislash"/><dota2:hasRole rdf:resource="#CarryRole"/><dota2:usesItem rdf:resource="#BattleFury"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Invoker">
+        <rdf:type rdf:resource="#IntelligenceHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Invoker</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#Quas"/><dota2:hasAbility rdf:resource="#Invoke"/><dota2:hasRole rdf:resource="#MidRole"/><dota2:usesItem rdf:resource="#BootsOfSpeed"/>
+        <dota2:hasLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</dota2:hasLevel><dota2:hasHealth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000</dota2:hasHealth><dota2:hasMana rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</dota2:hasMana><dota2:hasGold rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3000</dota2:hasGold><dota2:hasExperience rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5500</dota2:hasExperience>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CrystalMaiden">
+        <rdf:type rdf:resource="#IntelligenceHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Crystal Maiden</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#CrystalNova"/><dota2:hasAbility rdf:resource="#FreezingField"/><dota2:hasRole rdf:resource="#HardSupportRole"/><dota2:usesItem rdf:resource="#ForceStaff"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Abaddon">
+        <rdf:type rdf:resource="#UniversalHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Abaddon</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#AphoticShield"/><dota2:hasAbility rdf:resource="#BorrowedTime"/><dota2:hasRole rdf:resource="#SoftSupportRole"/><dota2:usesItem rdf:resource="#MagicWand"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Alchemist">
+        <rdf:type rdf:resource="#StrengthHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alchemist</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#AcidSpray"/><dota2:hasAbility rdf:resource="#ChemicalRage"/><dota2:hasRole rdf:resource="#CarryRole"/><dota2:usesItem rdf:resource="#BlackKingBar"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#AntiMage">
+        <rdf:type rdf:resource="#AgilityHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anti-Mage</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#Blink"/><dota2:hasAbility rdf:resource="#ManaVoid"/><dota2:hasRole rdf:resource="#CarryRole"/><dota2:usesItem rdf:resource="#BattleFury"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#AncientApparition">
+        <rdf:type rdf:resource="#IntelligenceHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ancient Apparition</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#IceVortex"/><dota2:hasAbility rdf:resource="#IceBlast"/><dota2:hasRole rdf:resource="#HardSupportRole"/><dota2:usesItem rdf:resource="#AghanimsScepter"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Axe">
+        <rdf:type rdf:resource="#StrengthHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Axe</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#BerserkersCall"/><dota2:hasAbility rdf:resource="#CullingBlade"/><dota2:hasRole rdf:resource="#OfflaneRole"/><dota2:usesItem rdf:resource="#BlinkDagger"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Windranger">
+        <rdf:type rdf:resource="#UniversalHero"/><dota2:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Windranger</dota2:hasName>
+        <dota2:hasAbility rdf:resource="#Powershot"/><dota2:hasAbility rdf:resource="#FocusFire"/><dota2:hasRole rdf:resource="#MidRole"/><dota2:usesItem rdf:resource="#Daedalus"/>
+    </owl:NamedIndividual>
+</rdf:RDF>

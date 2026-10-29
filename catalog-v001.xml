@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Dota2_Core" name="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/core" uri="Dota2Core.rdf"/>
+    <uri id="Dota2_Heroes" name="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/heroes" uri="Dota2Heroes.rdf"/>
+    <uri id="Dota2_Gameplay" name="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/gameplay" uri="Dota2Gameplay.rdf"/>
+    <uri id="Dota2_Items" name="http://www.semanticweb.org/dydojopka/ontologies/2026/8/dota2/items" uri="Dota2Items.rdf"/>
+</catalog>
