@@ -195,8 +195,6 @@ Match001 takesPlaceOn Dota2Map
 
 **Класс, подкласс, экземпляр?** `Hero` - класс, `StrengthHero` - его подкласс, `Pudge` - экземпляр `StrengthHero`. Универсальный корень OWL - `owl:Thing`, пользовательский - `Dota2Entity`.
 
-**Почему названия в одинарных кавычках?** Protégé обрамляет названия с пробелами: `'Базовый предмет'`, но `Золото`. Это оформление, а не часть IRI или признак другого вида класса. Чтобы видеть `BasicItem` вместо русской метки, выберите **View -> Render by entity IRI short name**.
-
 **Object Property и Data Property?** Первое связывает объекты: `Pudge usesItem BlinkDagger`. Второе - объект и литерал: `BlinkDagger hasCost "2250"^^xsd:integer`.
 
 **RDF-тройка и IRI?** Тройка - субъект, предикат, объект: `Player001 controls Pudge`. IRI - идентификатор сущности; префикс сокращает его запись, название не заменяет идентификатор.
@@ -224,15 +222,5 @@ Match001 takesPlaceOn Dota2Map
 **SPARQL и reasoner?** SPARQL ищет данные в графе, reasoner выводит следствия. Без вывода запрос по типу `Hero` может пропустить Pudge, явно типизированного как `StrengthHero`; нужен путь `rdf:type/rdfs:subClassOf*`. Граф запроса должен включать нужные модули.
 
 
-## Как воспроизвести демонстрацию
-
-1. Разместить четыре RDF-файла и `catalog-v001.xml` в одной папке и открыть **`Dota2Gameplay.rdf`** в Protégé.
-2. В **Active Ontology → Ontology imports** проверить Core, Heroes и Items.
-3. В **Entities → Classes** показать иерархию классов и ограничения `Hero` и `Match`.
-4. В **Entities → Object properties** выбрать `controls` и показать domain, range и обратное свойство `controlledBy`.
-5. В **Entities → Individuals** выбрать `Pudge` и показать его способности, предмет и команду.
-6. Выбрать **Reasoner → HermiT → Start reasoner**. Для проверки наследования и обратной связи открыть `Pudge` и включить показ выводимых аксиом.
-7. Для графа включить **Window → Tabs → OntoGraf**. Выбрать класс слева, нажать на его узел в графе правой кнопкой и выбрать **Expand**. Кнопка с домиком помещает весь граф в видимую область. Для отдельного фрагмента ввести `Pudge` в поле Search и нажать **Search**. При наложении узлов выбрать другую раскладку на панели инструментов.
-8. Для сохранения связей с названиями использовать **Export graph to DOT** на панели OntoGraf. Инструкции по получению деревьев в PNG и SVG приведены [рядом с изображениями](docs/ontologies/README.md).
 
 В интерфейсе русские подписи берутся из `rdfs:label`. Чтобы сопоставить их с идентификаторами в отчёте, выбрать **View → Render by entity IRI short name**.
